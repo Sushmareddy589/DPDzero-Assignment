@@ -50,19 +50,18 @@ $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 while ($data = $stmt->fetch()) {
 
             ?>
-                    <td>
+                    <tr>
 
-                        <tr><?php echo $data['employee_id']; ?> </tr>
-                        <tr><?php echo $data['emp_name']; ?> </tr>
-                        <tr><?php echo $data['emp_email']; ?> </tr>
-                        <tr><?php echo $data['emp_username']; ?> </tr>
+                        <td><?php echo $data['employee_id']; ?> </td>
+                        <td><?php echo $data['emp_name']; ?> </td>
+                        <td><?php echo $data['emp_username']; ?> </td>
                        
-                        <tr>
+                        <td>
                             <a href="update_user.php?employee_id=<?php echo $data['employee_id']; ?>">update</a>
                             <a href="delete_user.php?employee_id=<?php echo $data['employee_id']; ?>">delete </a>
 
-                        </tr>
-                    </td>
+                        </td>
+                    </tr>
         </tbody>
 <?php
                 }
