@@ -1,6 +1,6 @@
 <?php
 require "../config.php";
-$stmt = $conn->prepare("SELECT employee_id,emp_name,emp_email,emp_username,Age,Gender FROM employees");
+$stmt = $conn->prepare("SELECT employee_id,emp_name,emp_email,emp_username,age,gender FROM employees");
 $stmt->execute();
 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 ?>
@@ -41,8 +41,10 @@ $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     <input type="text" name="emp_username" value="">
                 </div>   <br><br>
                 <div class="form-element">
-                    <label for="age">Age</label><span class="required"> * </span>
-                    <input type="number" placeholder="age" max="2" required>
+                <label>
+                       Age
+                    </label>
+                    <input type="text" name="age" value="">
                    
                 </div>   <br><br>
                 <div class="form-element">
@@ -51,7 +53,7 @@ $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     <input type="radio" id="female" name="gender" value="female">
                     <label for="gender">female</label><br>
                     <input type="radio" id="male" name="gender" value="male">
-                    <label for="GENDER">MALE</label>
+                    <label for="gender">MALE</label>
                  
                 </div> <br><br>
                 
@@ -84,8 +86,8 @@ if (isset($_POST['emp_submit_form'])) {
     $emp_username = $_POST['emp_username'];
     $emp_email = $_POST['emp_email'];
     $emp_password = $_POST['emp_password'];
-    $age = $_POST['Age'];
-    $gender = $_POST['Gender'];
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
     //SELECT
     //To check whether the same username or email already exist in the DB
     $stmt = $conn->prepare("SELECT count(*) from employees where emp_username = '" . $emp_username . "' OR emp_email = '" . $emp_email . "'");
@@ -96,7 +98,7 @@ if (isset($_POST['emp_submit_form'])) {
     } else {
         try {
             //INSERT
-            $sql = "INSERT INTO employees (emp_name, emp_username, emp_email, emp_password, Age, Gender)
+            $sql = "INSERT INTO employees (emp_name, emp_username, emp_email, emp_password, age, gender)
                 VALUES ('$emp_name', '$emp_username', '$emp_email', '$emp_password', '$age', '$gender')";
             // use exec() because no results are returned
             $conn->exec($sql);
