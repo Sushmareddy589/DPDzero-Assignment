@@ -1,6 +1,6 @@
 <?php
 require "../config.php";
-$stmt = $conn->prepare("SELECT employee_id,emp_name,emp_email,emp_username FROM employees");
+$stmt = $conn->prepare("SELECT employee_id,emp_name,emp_email,emp_username,age,gender FROM employees");
 $stmt->execute();
 $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -70,6 +70,11 @@ if (isset($_GET["employee_id"])) {
 
     <input type="submit" class="button" name="submit" value="Update">
 </form>
+<div align="left">
+    <a href="http://localhost/sample/users/users.php">
+        <font size="9" color="red">back</font>
+    </a>
+</div>
 </html>
 
 
