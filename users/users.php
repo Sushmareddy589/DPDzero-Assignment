@@ -64,9 +64,9 @@ try {
                                 <td><?php echo $data['emp_name']; ?> </td>
                                 <td><?php echo $data['emp_email']; ?> </td>
                                 <td><?php echo $data['emp_username']; ?> </td>
-                                <td><a href="view.php?employee_id=<?php echo $data['employee_id']; ?>">view </a>
-                                    <a href="delete.php?employee_id=<?php echo $data['employee_id']; ?>">delete </a>
-                                    <a href="update.php?employee_id=<?php echo $data['employee_id']; ?>">update</a>
+                                <td>
+                                    <a href="delete_user.php?employee_id=<?php echo $data['employee_id']; ?>">delete </a>
+                                    <a href="update_user.php?employee_id=<?php echo $data['employee_id']; ?>">update</a>
                                 </td>
                             </tr>
 
